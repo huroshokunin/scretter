@@ -2,12 +2,6 @@ import tkinter
 from tkinter import ttk, filedialog
 import tweepy
 
-#twitterAPI key
-consumer_key = "Il2tp4J43hWLNBV4iXRAJD8YN"
-consumer_secret = "iPh5QIjdXruzVH9kKDy7WMvaFtKWuapO19Qd8yLkQssLgzSwWu"
-access_token = "1129389433143189504-tgmZBH5BDEFVPtJVA9ZhjyVWVeOuOt"
-access_token_secret = "SoPMw2nCjNRud81kSXumLj7uqFk3lPlrzas927dZNrGvR"
-
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
