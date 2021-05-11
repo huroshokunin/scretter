@@ -1,5 +1,16 @@
 import tkinter
 from tkinter import ttk, filedialog
+import tweepy
+
+#twitterAPI key
+consumer_key = "Il2tp4J43hWLNBV4iXRAJD8YN"
+consumer_secret = "iPh5QIjdXruzVH9kKDy7WMvaFtKWuapO19Qd8yLkQssLgzSwWu"
+access_token = "1129389433143189504-tgmZBH5BDEFVPtJVA9ZhjyVWVeOuOt"
+access_token_secret = "SoPMw2nCjNRud81kSXumLj7uqFk3lPlrzas927dZNrGvR"
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tweepy.API(auth)
 
 def askfolder():
     #参照ボタン機能
@@ -7,7 +18,8 @@ def askfolder():
     f_path.set(path)
 
 def do_Tweet():
-    pass
+    api.update_status("ソフトウェアからツイートしてます")
+
 
 #GUIの色々
 m_window = tkinter.Tk()
@@ -24,17 +36,20 @@ f_path = tkinter.StringVar()
 f_label = ttk.Label(m_frame, text="folder")
 f_box = ttk.Entry(m_frame, textvariable=f_path)
 f_button = ttk.Button(m_frame, text="reference", command=askfolder)
-T_button = ttk.Button(m_frame, text="Tweet!", command=do_Tweet)
+Twe_button = ttk.Button(m_frame, text="Tweet!", command=do_Tweet)
 
 
 #ボタン配置
 f_label.grid(column=0, row=0, pady=10)
 f_box.grid(column=1, row=0, sticky=tkinter.EW, padx=5)
 f_button.grid(column=2, row=0)
-T_button.grid(column=2, row=1)
+Twe_button.grid(column=2, row=1)
 
 m_window.columnconfigure(0, weight=1)
 m_window.rowconfigure(0, weight=1)
 m_frame.columnconfigure(1, weight=1)
+Twe_button.columnconfigure(0, weight=1)
+
+
 
 m_window.mainloop()
